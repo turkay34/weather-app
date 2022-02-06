@@ -6,6 +6,8 @@
 
 ##### Installed Libraries : Axios, MUI, SASS, React-DOM, React-Toastify
 
-##### Status : Lacking of visualization
+##### Status : Lacking of visualization, docker & Redux
+
+##### Installation : You need to run npm install script for getting packages, then you can run npm start to initialize project
 
 ### API Key : `d91a8219f8697e13ff03f1206427ce4b`
