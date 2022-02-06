@@ -13,6 +13,9 @@ import {
 } from "@mui/material";
 import Paper from '@mui/material/Paper';
 import {toast, ToastContainer} from "react-toastify";
+import TurkeyMap from 'turkey-map-react';
+import "antd/dist/antd.css";
+import { Tooltip } from "antd";
 
 import instance from "../../../api/WeatherApi";
 import {turkeyCities} from "../../data/TurkeyCities";
@@ -87,6 +90,23 @@ class CheckWeather extends Component {
                         options={turkeyCities}
                         sx={{width: 300}}
                         renderInput={(params) => <TextField {...params} label="Choose City"/>}
+                    />
+                </Box>
+                <Box sx={{
+                    margin: 'auto',
+                    width: '100%',
+                    height: '100%'
+                }}>
+                    <TurkeyMap
+                        onClick={(event) => this.getLatitudeAndLongitude(event.name)}
+                        cityWrapper={(cityComponent, cityData) => (
+                            <Tooltip
+                                title={`${cityData.plateNumber} - ${cityData.name}`}
+                                key={cityData.id}
+                            >
+                                {cityComponent}
+                            </Tooltip>
+                        )}
                     />
                 </Box>
                 <Box sx={{margin: 'auto', width: '100%', height: '100%'}}>
